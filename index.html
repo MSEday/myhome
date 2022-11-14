@@ -421,22 +421,22 @@
           //拼接格式化当前时间
           _this.times = hours + ":" + minutes + ":" + seconds;
 
-          if (hours >= 5 && hours <= 8) {
+          if (hours >= 5 && hours < 8) {
             this.$refs.TheStyle2.style.background = 'url(' + this.imageList[0].src + ')';
             this.$refs.TheStyle2.style.backgroundSize = '100% 100%';
             this.$refs.TheStyle2.style.transition = 'all 2s';
             console.log("早晨")
-          }else if(hours >=9 && hours <= 16){
+          }else if(hours >=8 && hours < 16){
             this.$refs.TheStyle2.style.background = 'url(' + this.imageList[1].src + ')';
             this.$refs.TheStyle2.style.backgroundSize = '100% 100%';
             this.$refs.TheStyle2.style.transition = 'all 2s';
             console.log("白天")
-          }else if(hours >= 17 && hours <= 19){
+          }else if(hours >= 16 && hours < 19){
             this.$refs.TheStyle2.style.background = 'url(' + this.imageList[2].src + ')';
             this.$refs.TheStyle2.style.backgroundSize = '100% 100%';
             this.$refs.TheStyle2.style.transition = 'all 2s';
             console.log("傍晚")
-          }else{
+          }else if(hours >= 19 && hours <= 23 || hours >= 0 && hours < 5){
             this.$refs.TheStyle2.style.background = 'url(' + this.imageList[3].src + ')';
             this.$refs.TheStyle2.style.backgroundSize = '100% 100%';
             this.$refs.TheStyle2.style.transition = 'all 2s';

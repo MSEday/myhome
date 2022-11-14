@@ -1,6 +1,8 @@
 ## 网站
-
 - https://mseday.github.io/myhome/
+
+## 仓库
+-https://github.com/MSEday/myhome.git
 
 ## 主要功能与用法
 
