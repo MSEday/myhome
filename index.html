@@ -8,7 +8,7 @@
   <script src="lib/vue.next.js"></script>
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./icon/iconfont.css">
-  <title>Document</title>
+  <title>第八小组</title>
   <style>
     * {
       margin: 0;
@@ -19,7 +19,7 @@
 
 
     .bg {
-      background: url(./image/Default1_Pre.jpg) no-repeat;
+      background: url(./image/Default1_Pre.jpg);
       top: 0;
       left: 0;
       width: 100%;
@@ -161,21 +161,24 @@
       box-shadow: #232323 0px 0px 10px;
     }
 
+    .searchTermsUp {
+      display: none;
+    }
   </style>
 </head>
 
 <body>
   <!-- <div id="bg"> -->
   <div id="box">
-    <div :class="inputCustom1 === 1 ? 'bg' : 'bg bg2' " @mousedown="FunctionModuleShow">
+    <div style="" :class="inputCustom1 === 1 ? 'bg' : 'bg bg2' " @mousedown="FunctionModuleShow" ref="TheStyle2">
       <div :class="inputCustom1 === 1 ? 'searchTerms wh100' : 'searchTerms wh100active' "
         @click.self="searchTermsClickOut">
         <div class="datalist" @click.self="searchTermsClickOut">{{times}}</div>
         <form action="http://www.baidu.com/baidu" target="_blank">
           <input name="word" type="text" placeholder="搜索" :class="inputCustom1 === 1 ? 'inputCustom' : 'inputCustom2' "
             @click.self="searchTermsClick" v-model="mytext">
-          <button @click="searchTermsUp" :class="inputCustom1 === 1 ? '' : 'iconfont icon-sousuo' " value="百度搜索"
-            type="submit"></button>
+          <button @click="searchTermsUp" :class="inputCustom1 === 1 ? 'searchTermsUp' : 'iconfont icon-sousuo' "
+            value="百度搜索" type="submit"></button>
         </form>
       </div>
     </div>
@@ -184,7 +187,7 @@
       <div class="FunctionModule">
         <ul class="top" @click.self="isShow=false">
           <li v-for="(item,index) in changelist" :key="item.id">
-            <a :href="item.href">
+            <a :href="item.href" target="_blank">
               <div :class="item.iconfont ">
               </div>
               <div>
@@ -306,63 +309,82 @@
               id: 9,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试1"
             },
             {
               id: 10,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试2"
             },
             {
               id: 11,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试3"
             },
             {
               id: 11,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试4"
             },
             {
               id: 12,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试5"
             },
             {
               id: 13,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试6"
             },
             {
               id: 14,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试7"
             },
             {
               id: 15,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试8"
             },
             {
               id: 16,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试9"
             },
             {
               id: 17,
               iconfont: "iconfont icon-bilibili",
               href: "https://www.bilibili.com/",
-              name: "哔哩哔哩"
+              name: "测试10"
+            },
+          ],
+          imageList: [
+            {
+              id: '1',
+              src: "./image/Default1_Pre.jpg",
+            },
+            {
+              id: '2',
+              src: "./image/Default2_Pre.jpg",
+            },
+            {
+              id: '3',
+              src: "./image/Default3_Pre.jpg",
+            },
+            {
+              id: '4',
+              src: "./image/Default4_Pre.jpg",
             },
           ]
+
         }
       },
       created() {
@@ -398,6 +420,28 @@
           }
           //拼接格式化当前时间
           _this.times = hours + ":" + minutes + ":" + seconds;
+
+          if (hours >= 5 && hours <= 8) {
+            this.$refs.TheStyle2.style.background = 'url(' + this.imageList[0].src + ')';
+            this.$refs.TheStyle2.style.backgroundSize = '100% 100%';
+            this.$refs.TheStyle2.style.transition = 'all 2s';
+            console.log("早晨")
+          }else if(hours >=9 && hours <= 16){
+            this.$refs.TheStyle2.style.background = 'url(' + this.imageList[1].src + ')';
+            this.$refs.TheStyle2.style.backgroundSize = '100% 100%';
+            this.$refs.TheStyle2.style.transition = 'all 2s';
+            console.log("白天")
+          }else if(hours >= 17 && hours <= 19){
+            this.$refs.TheStyle2.style.background = 'url(' + this.imageList[2].src + ')';
+            this.$refs.TheStyle2.style.backgroundSize = '100% 100%';
+            this.$refs.TheStyle2.style.transition = 'all 2s';
+            console.log("傍晚")
+          }else{
+            this.$refs.TheStyle2.style.background = 'url(' + this.imageList[3].src + ')';
+            this.$refs.TheStyle2.style.backgroundSize = '100% 100%';
+            this.$refs.TheStyle2.style.transition = 'all 2s';
+            console.log("晚上")
+          }
         },
         //输入框状态
         searchTermsClick() {
@@ -419,11 +463,10 @@
         topButtonAdd(num) {
           let length = this.changelist.length
           let length2 = this.datalist.length
-
           this.changelist.push(this.datalist[length])
-          console.log(this.datalist[length])
 
-          this.isDisable2++;
+
+          // this.isDisable2++;
           // if(this.isDisable2 === 29 )
 
         },
@@ -431,7 +474,9 @@
           if (evt.button === 2) {
             this.isShow = true
           }
+
         }
+
       }
     }
 
