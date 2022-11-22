@@ -1,13 +1,3 @@
 ## 网站
+
 - https://mseday.github.io/myhome/
-
-## 仓库
--https://github.com/MSEday/myhome.git
-
-## 主要功能与用法
-
-- 右键打开功能菜单
-  - 不能自定义功能模块
-
-- 背景
-  - 壁纸分为早中傍晚晚,系统时间自动切换
